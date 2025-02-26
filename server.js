@@ -9,6 +9,7 @@ const http = require("http");
 const cors = require("cors");
 const { Server } = require('ws');
 const setupWebsocket = require("./ws");
+const testRoutes = require("./routes/test");
 const app = express();
 
 
@@ -18,6 +19,7 @@ app.use("/api/auth", authRoutes); // Use authentication routes
 app.use("/api/session", sessionRoutes);
 app.use("/api/subscription", subscriptionRoutes);
 app.use('/api/chat',chatRoutes);
+app.use("/api", testRoutes);
 app.use(cors());
 
 // Test Route
@@ -29,6 +31,9 @@ app.get("/", (req, res) => {
 app.get("/api/protected", authMiddleware, (req, res) => {
     res.json({ message: "Access granted!", user: req.user });
   });
+  app.get("/api/test", (req, res) => {
+    res.json({ message: "API is working!" });
+});
 
 
 
