@@ -1,23 +1,25 @@
 {
   "development": {
-    "username": "counselease_user",
-    "password": "niveruben@1013",
-    "database": "counselease27",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+  "username": "counselease27_user",
+  "password": "RelFH4wBwLLZ53vfTRx74PxNiHj3KgJd",
+  "database": "counselease27",
+  "host": "dpg-cuvdgb9u0jms739iufl0-a",  
+  "dialect": "postgres"
   },
+
   "test": {
-    "username": "counselease_user",
-    "password": "niveruben@1013",
+    "username": "counselease27_user",
+    "password": "RelFH4wBwLLZ53vfTRx74PxNiHj3KgJd",
     "database": "counselease27",
-    "host": "127.0.0.1",
+    "host": "dpg-cuvdgb9u0jms739iufl0-a",
     "dialect": "postgres"
   },
   "production": {
-    "username": "counselease_user",
-    "password": "niveruben@1013",
+    "username": "counselease27_user",
+    "password": "RelFH4wBwLLZ53vfTRx74PxNiHj3KgJd",
     "database": "counselease27",
-    "host": "127.0.0.1",
+    "host": "dpg-cuvdgb9u0jms739iufl0-a",
     "dialect": "postgres"
   }
+  
 }
