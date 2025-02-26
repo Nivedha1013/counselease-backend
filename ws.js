@@ -1,7 +1,7 @@
 const WebSocket = require("ws");
 
 function setupWebSocket(server) {
-  const ws = new WebSocket("ws://localhost:5000");
+  const wss = new WebSocket.Server({ server });
 
   const clients = new Map(); // To store connected clients
 
@@ -38,6 +38,7 @@ function setupWebSocket(server) {
       }
     });
   });
+  return wss;
 }
 
 module.exports = setupWebSocket;
