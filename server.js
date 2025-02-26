@@ -20,11 +20,21 @@ app.use("/api/session", sessionRoutes);
 app.use("/api/subscription", subscriptionRoutes);
 app.use('/api/chat',chatRoutes);
 app.use("/api", testRoutes);
-app.use(cors());
+// Force HTTPS Redirect
+app.use((req, res, next) => {
+  if (req.headers["x-forwarded-proto"] !== "https") {
+    return res.redirect(`https://${req.headers.host}${req.url}`);
+  }
+  next();
+});
+app.use(cors({
+  origin:"https://counselease27.netlify.app/",
+  credentials:true,
+}));
 
 // Test Route
 app.get("/", (req, res) => {
-  res.send("Welcome to CounseLease API!");
+  res.send("Welcome to CounseLease API with SSL/TLS!");
 });
 
 // 🔐 Protected Route (Only accessible with a valid token)
