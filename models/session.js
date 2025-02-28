@@ -1,27 +1,20 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Session extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+const { DataTypes } = require("sequelize");
+const { sequelize } = require("../models"); // ✅ Correct way to import Sequelize instance
+
+module.exports = (sequelize, DataTypes) => { 
+const session = sequelize.define("session", {
+    id: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, primaryKey: true },
+    clientId: { type: DataTypes.UUID, allowNull: false },
+    counsellorId: { type: DataTypes.UUID, allowNull: false },
+    date: { type: DataTypes.DATEONLY, allowNull: false },
+    startTime: { type: DataTypes.TIME, allowNull: false },
+    endTime: { type: DataTypes.TIME, allowNull: false },
+    status: { 
+        type: DataTypes.ENUM("scheduled", "completed", "cancelled"), 
+        allowNull: false, 
+        defaultValue: "scheduled" 
     }
-  }
-  Session.init({
-    userId: DataTypes.INTEGER,
-    counselorId: DataTypes.INTEGER,
-    date: DataTypes.DATE,
-    time: DataTypes.STRING,
-    status: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Session',
-  });
-  return Session;
+});
+
+return session;
 };

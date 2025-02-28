@@ -9,7 +9,7 @@
       "ssl": {
         "require": true,
         "rejectUnauthorized": false
-      }
+      }  
     }
   },
   
@@ -18,13 +18,8 @@
     "password": "RelFH4wBwLLZ53vfTRx74PxNiHj3KgJd",
     "database": "counselease27",
     "host": "dpg-cuvdgb9u0jms739iufl0-a.oregon-postgres.render.com",
-    "dialect": "postgres",
-    "dialectOptions": {
-      "ssl": {
-        "require": true,
-        "rejectUnauthorized": false
-      }
-    }
+    "dialect": "postgres"
+    
   },
   "production": {
     "username": "counselease27_user",
@@ -36,7 +31,7 @@
       "ssl": {
         "require": true,
         "rejectUnauthorized": false
-      }
+      }  
     }
   }
 }
